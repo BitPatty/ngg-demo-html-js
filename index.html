@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Demo</title>
+    <link rel="stylesheet" href="./index.css" />
+</head>
+
+<body>
+    <main>
+        <h1 id="title">This is a Demo Page</h1>
+        <button onclick="btn_changeBackground()">Click Me!</button>
+    </main>
+    <script>
+        // Changes the background of the document body to a random color
+        // And adjusts the font color of the title
+        function btn_changeBackground() {
+            // The values of red, blue and green must be between 0 and 255
+            // and may not be fractionals (e.g. must be 123 not 123.1)
+            const red = Math.floor(Math.random() * 255);
+            const blue = Math.floor(Math.random() * 255);
+            const green = Math.floor(Math.random() * 255);
+
+            // If the background is has a lot of light
+            // use a dark title, else use a light title
+            const average = (red + blue + green) / 3;
+
+            if (average > 200) {
+                document.getElementById("title").style = "color: black"
+            } else {
+                document.getElementById("title").style = "color: white"
+            }
+
+            // Set the background color of the body
+            document.body.style = `background: rgb(${red}, ${blue}, ${green})`;
+        }
+    </script>
+</body>
+
+</html>
